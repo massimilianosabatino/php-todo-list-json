@@ -25,6 +25,7 @@ createApp({
         //Send request to add task
         addTask(){
             const data = {newTask: this.newTask};
+            
             axios.post('backend.php', data, {
                 headers: {'Content-Type' : 'multipart/form-data'}
             }).then(response => {
