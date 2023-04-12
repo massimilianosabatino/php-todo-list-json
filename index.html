@@ -12,6 +12,9 @@
     <!-- Vue.js -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!-- /Vue.js -->
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- /Fontawesome -->
 </head>
 <body>
     <div id="app">
@@ -19,8 +22,9 @@
         <div class="row justify-content-center mt-2 mb-5">
             <div class="col col-md-8">
                 <ul class="list-group todo-container">
-                    <li class="list-group-item" v-for="(todo, index) in todos" @click="getTask">
+                    <li class="list-group-item d-flex justify-content-between" v-for="(todo, index) in todos" @click="getTask">
                         <div class="text-todo" :class="{checked: todo.done}">{{ todo.text }}</div>
+                        <div class="delete-todo" role="button" @click="removeItem(index)"><i class="fa-solid fa-circle-xmark"></i></div>
                     </li>
                 </ul>
             </div>
@@ -33,7 +37,7 @@
                     <label for="add-task">
                         <input type="text" class="form-control" placeholder="Add To Do" name="add-task" id="add-task" v-model="newTask" @keyup.enter="addTask">
                     </label>
-                    <button class="btn btn-outline-secondary" type="submit" id="button-send" @click="addTask"> ADD <!-- <i class="fa-solid fa-circle-plus"></i> --></button>
+                    <button class="btn btn-outline-secondary" type="submit" id="button-send" @click="addTask"><i class="fa-solid fa-circle-plus"></i></button>
                 </div>
             </div>
         </div>

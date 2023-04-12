@@ -25,12 +25,21 @@ createApp({
         //Send request to add task
         addTask(){
             const data = {newTask: this.newTask};
-            console.log(data)
             axios.post('backend.php', data, {
                 headers: {'Content-Type' : 'multipart/form-data'}
             }).then(response => {
                 this.todos = response.data;
                 this.newTask = '';
+            })
+        },
+
+        removeItem(element){
+            const data = { element }
+            console.log(data)
+            axios.post('backend.php', data, {
+                headers: {'Content-Type' : 'multipart/form-data'}
+            }).then(response => {
+                console.log(response)
             })
         }
         
