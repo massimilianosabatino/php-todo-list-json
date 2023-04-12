@@ -38,11 +38,11 @@ createApp({
                 index: element,
                 mark: 'remove'
             }
-            console.log(data)
+            
             axios.post('backend.php', data, {
                 headers: {'Content-Type' : 'multipart/form-data'}
             }).then(response => {
-                console.log(response)
+                this.todos = response.data;
             })
         },
 
@@ -51,7 +51,6 @@ createApp({
                 index: element,
                 mark: 'done'
             }
-            console.log(data)
             axios.post('backend.php', data, {
                 headers: {'Content-Type' : 'multipart/form-data'}
             }).then(response => {
