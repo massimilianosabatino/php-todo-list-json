@@ -15,15 +15,29 @@
 </head>
 <body>
     <div id="app">
+        <!-- Task list -->
         <div class="row justify-content-center mt-2 mb-5">
             <div class="col col-md-8">
                 <ul class="list-group todo-container">
-                        <li class="list-group-item" v-for="(todo, index) in todos" @click="getTask">
-                            <div class="text-todo" :class="{checked: todo.done}">{{ todo.text }}</div>
-                        </li>
+                    <li class="list-group-item" v-for="(todo, index) in todos" @click="getTask">
+                        <div class="text-todo" :class="{checked: todo.done}">{{ todo.text }}</div>
+                    </li>
                 </ul>
             </div>
         </div>
+        <!-- /Task list -->
+        <!-- Add task -->
+        <div class="row justify-content-center">
+            <div class="col col-md-8">
+                <div class="input-group">
+                    <label for="add-task">
+                        <input type="text" class="form-control" placeholder="Add To Do" name="add-task" id="add-task" v-model="newTask">
+                    </label>
+                    <button class="btn btn-outline-secondary" type="submit" id="button-send" @click="addTask"> ADD <!-- <i class="fa-solid fa-circle-plus"></i> --></button>
+                </div>
+            </div>
+        </div>
+        <!-- /Add task -->
     </div>    
 
 

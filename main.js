@@ -9,15 +9,28 @@ createApp({
     data(){
         return {
             todos: [],
+            newTask: '',
         }
     },
     methods: {
+        //Get data from back-end
         getTask(){
             axios.post('backend.php', {
-                Headers: {'Content-Type' : 'multipart/form-data'}
+                headers: {'Content-Type' : 'multipart/form-data'}
             }).then(response => {
                 this.todos = response.data;
               })
+        },
+        
+        //Send request to add task
+        addTask(){
+            const data = {newTask: this.newTask};
+            console.log(data)
+            axios.post('backend.php', data, {
+                headers: {'Content-Type' : 'multipart/form-data'}
+            }).then(response => {
+                console.log(response)
+            })
         }
         
     },
