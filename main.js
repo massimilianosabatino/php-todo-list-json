@@ -34,7 +34,20 @@ createApp({
         },
 
         removeItem(element){
-            const data = { element }
+            const data = {
+                index: element,
+                mark: 'remove'
+            }
+            console.log(data)
+            axios.post('backend.php', data, {
+                headers: {'Content-Type' : 'multipart/form-data'}
+            }).then(response => {
+                console.log(response)
+            })
+        },
+
+        doneSwitch(element){
+            const data = { elementCheck }
             console.log(data)
             axios.post('backend.php', data, {
                 headers: {'Content-Type' : 'multipart/form-data'}
