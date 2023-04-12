@@ -9,7 +9,7 @@ $task_text = isset($_POST['newTask']) ?  $_POST['newTask'] : null;
 //Get index of task 
 $task_index = isset($_POST['index']) ?  $_POST['index'] : null;
 
-
+$task_remove = isset($_POST['mark']) ?  $_POST['mark'] : null;
 
 
 
@@ -30,7 +30,7 @@ if($task_text !== null){
 };
 
 //Remove task
-if($task_index !== null){
+if($task_index !== null && $task_remove === 'remove'){
     //Convert index from string to number
     $index = intval($task_index);
 
