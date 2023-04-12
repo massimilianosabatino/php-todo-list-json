@@ -30,6 +30,7 @@ createApp({
                 headers: {'Content-Type' : 'multipart/form-data'}
             }).then(response => {
                 this.todos = response.data;
+                this.newTask = '';
             })
         }
         

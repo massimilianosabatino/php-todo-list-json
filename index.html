@@ -31,7 +31,7 @@
             <div class="col col-md-8">
                 <div class="input-group">
                     <label for="add-task">
-                        <input type="text" class="form-control" placeholder="Add To Do" name="add-task" id="add-task" v-model="newTask">
+                        <input type="text" class="form-control" placeholder="Add To Do" name="add-task" id="add-task" v-model="newTask" @keyup.enter="addTask">
                     </label>
                     <button class="btn btn-outline-secondary" type="submit" id="button-send" @click="addTask"> ADD <!-- <i class="fa-solid fa-circle-plus"></i> --></button>
                 </div>
