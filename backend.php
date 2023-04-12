@@ -9,7 +9,18 @@ $task_text = isset($_POST['newTask']) ?  $_POST['newTask'] : null;
 //Get index of task 
 $task_index = isset($_POST['index']) ?  $_POST['index'] : null;
 
-$task_remove = isset($_POST['mark']) ?  $_POST['mark'] : null;
+//Check if to remove
+$task_mark = isset($_POST['mark']) ?  $_POST['mark'] : null;
+
+$remove = false;
+$done = false;
+
+if($task_mark === 'remove'){
+    $remove = true;
+}elseif($task_mark === 'done'){
+    $done = true;
+}
+
 
 
 
@@ -30,13 +41,29 @@ if($task_text !== null){
 };
 
 //Remove task
-if($task_index !== null && $task_remove === 'remove'){
+if($task_index !== null && $remove){
     //Convert index from string to number
     $index = intval($task_index);
 
     //Remove selected task
     array_splice($task, $index, 1);
     
+    //Convert and store data
+    $task_to_json = json_encode($task);
+    file_put_contents(__DIR__. '/task.json', $task_to_json);
+
+    $remove = false;
+}
+
+//Mark task
+
+if($task_index !== null && $done){
+    //Convert index from string to number
+    $index = intval($task_index);
+
+    //Switch done state
+    $task[$index]['done'] = !$task[$index]['done'];
+
     //Convert and store data
     $task_to_json = json_encode($task);
     file_put_contents(__DIR__. '/task.json', $task_to_json);

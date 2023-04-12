@@ -47,12 +47,15 @@ createApp({
         },
 
         doneSwitch(element){
-            const data = { elementCheck }
+            const data = {
+                index: element,
+                mark: 'done'
+            }
             console.log(data)
             axios.post('backend.php', data, {
                 headers: {'Content-Type' : 'multipart/form-data'}
             }).then(response => {
-                console.log(response)
+                this.todos = response.data;
             })
         }
         
