@@ -18,17 +18,17 @@
         <div class="row justify-content-center mt-2 mb-5">
             <div class="col col-md-8">
                 <ul class="list-group todo-container">
-                        <li class="list-group-item" v-for="(todo, index) in todos">
+                        <li class="list-group-item" v-for="(todo, index) in todos" @click="getTask">
                             <div class="text-todo" :class="{checked: todo.done}">{{ todo.text }}</div>
                         </li>
                 </ul>
             </div>
         </div>
-        
     </div>    
 
 
     <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="main.js"></script>
     <!-- /JS -->
 </body>
