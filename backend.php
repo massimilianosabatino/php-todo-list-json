@@ -14,6 +14,8 @@ if($task_text != null){
     ];
     
     $task[] = $new_task;
+    $task_to_json = json_encode($task);
+    file_put_contents(__DIR__. '/task.json', $task_to_json);
 };
 
 // Send back info
